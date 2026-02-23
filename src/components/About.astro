@@ -31,7 +31,7 @@ const highlights = [
       <div class="about__highlights">
         {highlights.map((h, i) => (
           <div class={`about__highlight reveal reveal-delay-${i + 2}`}>
-            <span class="about__highlight-icon">{h.icon}</span>
+            <span class="about__highlight-icon" aria-hidden="true">{h.icon}</span>
             <div>
               <h3 class="about__highlight-title">{h.title}</h3>
               <p class="about__highlight-desc">{h.desc}</p>

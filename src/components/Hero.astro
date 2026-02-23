@@ -345,8 +345,20 @@ const stats = [
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  // Boot
-  runHeroEntrance();
-  animateCounters();
-  initParallax();
+  // Boot — respect reduced motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    // Show everything immediately, display final counter values
+    document.querySelectorAll<HTMLElement>('.hero-word, .hero-entrance').forEach(
+      (el) => el.classList.add('is-entered')
+    );
+    document.querySelectorAll<HTMLElement>('[data-count-to]').forEach((el) => {
+      el.textContent = (el.dataset.countTo || '0') + (el.dataset.countSuffix || '');
+    });
+  } else {
+    runHeroEntrance();
+    animateCounters();
+    initParallax();
+  }
 </script>

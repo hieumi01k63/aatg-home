@@ -30,7 +30,7 @@ const industries = [
       <div class="industries__grid">
         {industries.map((ind, i) => (
           <div class={`industries__card reveal reveal-delay-${(i % 4) + 1}`}>
-            <span class="industries__icon">{ind.icon}</span>
+            <span class="industries__icon" aria-hidden="true">{ind.icon}</span>
             <span class="industries__name">{ind.name}</span>
           </div>
         ))}
@@ -59,7 +59,7 @@ const industries = [
     background:var(--white);
     border:1px solid var(--gray-100);
     border-radius:8px;
-    transition:all .35s var(--ease);
+    transition:border-color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease);
   }
   .industries__card:hover{
     border-color:var(--orange);

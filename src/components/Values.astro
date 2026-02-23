@@ -33,7 +33,7 @@ const values = [
     <div class="values__grid">
       {values.map((v, i) => (
         <div class={`values__item reveal reveal-delay-${i + 1}`}>
-          <div class="values__icon" set:html={v.icon} />
+          <div class="values__icon" aria-hidden="true" set:html={v.icon} />
           <h3 class="values__title">{v.title}</h3>
           <p class="values__desc">{v.desc}</p>
         </div>
@@ -58,7 +58,7 @@ const values = [
     padding:clamp(28px,3vw,40px) clamp(16px,2vw,24px);
     border-radius:8px;
     border:1px solid transparent;
-    transition:all .4s var(--ease);
+    transition:background .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease),transform .4s var(--ease);
   }
   .values__item:hover{
     background:var(--white);
@@ -74,7 +74,7 @@ const values = [
     background:var(--orange-glow);
     color:var(--orange);
     border-radius:12px;
-    transition:all .3s var(--ease);
+    transition:background .3s var(--ease),color .3s var(--ease);
   }
   .values__item:hover .values__icon{
     background:var(--orange);color:var(--white);

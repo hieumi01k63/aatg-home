@@ -13,11 +13,18 @@ const clients = ['Diijam', 'Global Detective', 'Hien Le Aptis', 'DNG Solution', 
 
     <div class="clients__track reveal reveal-delay-2">
       <div class="clients__logos">
-        {[...clients, ...clients].map((c) => (
+        {clients.map((c) => (
           <div class="clients__logo">
             <span>{c}</span>
           </div>
         ))}
+        <div aria-hidden="true" style="display:contents">
+          {clients.map((c) => (
+            <div class="clients__logo">
+              <span>{c}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -56,5 +63,9 @@ const clients = ['Diijam', 'Global Detective', 'Hien Le Aptis', 'DNG Solution', 
   @keyframes marquee{
     0%{transform:translateX(0)}
     100%{transform:translateX(-50%)}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .clients__logos{animation:none}
   }
 </style>

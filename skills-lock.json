@@ -46,6 +46,11 @@
       "sourceType": "github",
       "computedHash": "2e00e675e5b15812396b37fc3f68d254b5d9153f0c5353a29be22795bb0aa620"
     },
+    "concept-workflow": {
+      "source": "leonardomso/33-js-concepts",
+      "sourceType": "github",
+      "computedHash": "d3eb3456e1fdb4af47046ea535e68136ff8992a22d99fcf6ff195e55d09e6188"
+    },
     "confluence-assistant": {
       "source": "tech-leads-club/agent-skills",
       "sourceType": "github",
@@ -95,6 +100,11 @@
       "source": "tech-leads-club/agent-skills",
       "sourceType": "github",
       "computedHash": "e24e3c4cab4b5a07bc1d1801db14868f3a1cd184f7f28f5dd2c4a2b234bf2f2d"
+    },
+    "fact-check": {
+      "source": "leonardomso/33-js-concepts",
+      "sourceType": "github",
+      "computedHash": "596e4a594da5ea6c0963bce6f722aa498446f5ac2c05ef03d792d4ec147aaeed"
     },
     "figma": {
       "source": "tech-leads-club/agent-skills",
@@ -186,6 +196,11 @@
       "sourceType": "github",
       "computedHash": "56d778f4701c0ddb0a68fea3246308a6779f1d88743d5339aa87cccfdfee90e2"
     },
+    "resource-curator": {
+      "source": "leonardomso/33-js-concepts",
+      "sourceType": "github",
+      "computedHash": "2c8d1219448cf1c1b5600e17ca4291735ac47d2c3c33d5ab21fc8da06b2db342"
+    },
     "run-nx-generator": {
       "source": "tech-leads-club/agent-skills",
       "sourceType": "github",
@@ -215,6 +230,11 @@
       "source": "tech-leads-club/agent-skills",
       "sourceType": "github",
       "computedHash": "7b124e46a34303039b08aefe1c60aac89f05aee348c2c8522e69533fd7a6f62e"
+    },
+    "seo-review": {
+      "source": "leonardomso/33-js-concepts",
+      "sourceType": "github",
+      "computedHash": "1cbe9030721e96d95a39f0437e37d407fa1f6fc94680ae04cac85c66f5eb9f5f"
     },
     "shopify-developer": {
       "source": "tech-leads-club/agent-skills",
