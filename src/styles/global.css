@@ -50,7 +50,8 @@ button{font:inherit;cursor:pointer;border:none;background:none}
   width:100%;
   max-width:var(--container);
   margin:0 auto;
-  padding:0 clamp(20px,4vw,40px);
+  padding-left:clamp(20px,5vw,40px);
+  padding-right:clamp(20px,5vw,40px);
 }
 
 /* --- Section Utilities --- */
