@@ -1,0 +1,128 @@
+---
+const reasons = [
+  {
+    num: '01',
+    title: 'Battle-Tested Engineers',
+    desc: 'Our developers average 5+ years of experience and are rigorously vetted through technical assessments and real-world project trials.',
+  },
+  {
+    num: '02',
+    title: 'Transparent Communication',
+    desc: 'Daily standups, weekly reports, and real-time access to project boards. You always know exactly where your project stands.',
+  },
+  {
+    num: '03',
+    title: 'Flexible Engagement Models',
+    desc: 'Fixed-price, time & materials, or dedicated team — choose the model that fits your project scope and budget.',
+  },
+  {
+    num: '04',
+    title: 'Security & Compliance',
+    desc: 'ISO-aligned processes, code audits, and data protection practices built into every phase of development.',
+  },
+  {
+    num: '05',
+    title: 'Seamless Integration',
+    desc: 'Our teams plug into your existing tools and workflows — Jira, Slack, GitHub, CI/CD — as if they were in-house.',
+  },
+  {
+    num: '06',
+    title: 'Long-Term Partnership',
+    desc: 'We don\'t just deliver and disappear. Ongoing support, optimization, and evolution of your products is our commitment.',
+  },
+];
+---
+
+<section class="whyus section section--dark" id="why-us">
+  <div class="container">
+    <div class="whyus__header">
+      <p class="section-label reveal">Why AATG</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        What Sets Us Apart
+      </h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Choosing a development partner is a critical decision. Here's why companies trust AATG.
+      </p>
+    </div>
+
+    <div class="whyus__grid">
+      {reasons.map((r, i) => (
+        <div class={`whyus__card reveal reveal-delay-${(i % 3) + 1}`}>
+          <div class="whyus__card-head">
+            <span class="whyus__num">{r.num}</span>
+            <h3 class="whyus__title">{r.title}</h3>
+          </div>
+          <p class="whyus__desc">{r.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .whyus__header{
+    max-width:600px;
+    margin-bottom:clamp(40px,5vw,64px);
+  }
+
+  .whyus__grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:var(--gap);
+  }
+
+  .whyus__card{
+    padding:clamp(24px,3vw,36px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:8px;
+    background:rgba(255,255,255,.02);
+    transition:all .4s var(--ease);
+    position:relative;
+  }
+  .whyus__card::before{
+    content:'';position:absolute;top:0;left:0;
+    width:3px;height:0;
+    background:var(--orange);
+    border-radius:8px 0 0 8px;
+    transition:height .4s var(--ease);
+  }
+  .whyus__card:hover{
+    background:rgba(255,255,255,.05);
+    border-color:rgba(255,106,0,.15);
+    transform:translateY(-4px);
+  }
+  .whyus__card:hover::before{height:100%}
+
+  .whyus__card-head{
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:14px;
+  }
+
+  .whyus__num{
+    font-family:var(--font-mono);
+    font-size:.7rem;letter-spacing:.08em;
+    color:var(--orange);
+    background:rgba(255,106,0,.1);
+    padding:6px 10px;border-radius:4px;
+    flex-shrink:0;
+  }
+
+  .whyus__title{
+    font-family:var(--font-display);
+    font-size:1rem;font-weight:700;
+    color:var(--white);
+  }
+
+  .whyus__desc{
+    font-size:.85rem;color:var(--gray-400);
+    line-height:1.7;
+    padding-left:0;
+  }
+
+  @media(max-width:900px){
+    .whyus__grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:560px){
+    .whyus__grid{grid-template-columns:1fr}
+  }
+</style>

@@ -1,0 +1,106 @@
+<section class="cta section" id="contact">
+  <div class="container">
+    <div class="cta__box reveal">
+      <div class="cta__glow" aria-hidden="true"></div>
+      <div class="cta__content">
+        <p class="section-label reveal reveal-delay-1" style="color:var(--orange)">
+          Ready to Start?
+        </p>
+        <h2 class="cta__heading reveal reveal-delay-2">
+          Let's Build Something<br/>
+          <span class="cta__accent">Extraordinary</span> Together
+        </h2>
+        <p class="cta__sub reveal reveal-delay-3">
+          Tell us about your project and we'll get back to you within 24 hours with a tailored proposal.
+        </p>
+        <div class="cta__actions reveal reveal-delay-4">
+          <a href="mailto:sayhello@aatg.company" class="btn btn--primary">
+            Contact Us
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/84352581586" class="btn btn--outline" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="cta__contact-info reveal reveal-delay-5">
+          <a href="mailto:sayhello@aatg.company" class="cta__email">sayhello@aatg.company</a>
+          <span class="cta__divider">|</span>
+          <a href="tel:+84352581586" class="cta__phone">+84 352 581 586</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta{padding-bottom:var(--section-pad)}
+
+  .cta__box{
+    position:relative;
+    background:var(--navy-900);
+    border-radius:16px;
+    padding:clamp(48px,6vw,80px) clamp(32px,5vw,80px);
+    text-align:center;
+    overflow:hidden;
+  }
+
+  .cta__glow{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(400px circle at 30% 50%,rgba(255,106,0,.12),transparent 60%),
+      radial-gradient(500px circle at 70% 50%,rgba(61,26,142,.15),transparent 60%);
+    pointer-events:none;
+  }
+
+  .cta__content{position:relative;z-index:1}
+
+  .cta__heading{
+    font-family:var(--font-display);
+    font-size:clamp(2rem,4vw,3.2rem);
+    font-weight:800;color:var(--white);
+    line-height:1.15;letter-spacing:-.02em;
+    margin-top:12px;
+  }
+  .cta__accent{
+    background:linear-gradient(135deg,var(--orange),var(--orange-light));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  .cta__sub{
+    font-size:clamp(.95rem,1.3vw,1.1rem);
+    color:var(--gray-200);
+    max-width:500px;margin:20px auto 0;
+    line-height:1.7;
+  }
+
+  .cta__actions{
+    display:flex;align-items:center;justify-content:center;
+    flex-wrap:wrap;gap:16px;
+    margin-top:36px;
+  }
+  .cta__contact-info{
+    display:flex;align-items:center;justify-content:center;
+    flex-wrap:wrap;gap:12px;
+    margin-top:20px;
+  }
+  .cta__email,.cta__phone{
+    font-family:var(--font-mono);
+    font-size:.88rem;color:var(--orange);
+    border-bottom:1px dashed rgba(255,106,0,.4);
+    padding-bottom:2px;
+    transition:color .3s var(--ease),border-color .3s var(--ease);
+  }
+  .cta__email:hover,.cta__phone:hover{
+    color:var(--orange-light);
+    border-color:var(--orange-light);
+  }
+  .cta__divider{
+    color:var(--gray-400);font-size:.85rem;
+  }
+
+  .cta .section-label{justify-content:center}
+  .cta .section-label::before{display:none}
+</style>

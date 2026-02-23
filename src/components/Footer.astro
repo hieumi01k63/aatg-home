@@ -1,0 +1,154 @@
+---
+const year = new Date().getFullYear();
+const links = {
+  services: [
+    { label: 'Web Development', href: '#services' },
+    { label: 'Mobile Apps', href: '#services' },
+    { label: 'Dedicated Teams', href: '#services' },
+    { label: 'IT Outsourcing', href: '#services' },
+    { label: 'Cloud & DevOps', href: '#services' },
+  ],
+  company: [
+    { label: 'About Us', href: '#about' },
+    { label: 'Our Process', href: '#' },
+    { label: 'Careers', href: '#' },
+    { label: 'Contact', href: '#contact' },
+  ],
+};
+
+import Logo from './Logo.astro';
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <Logo width={160} theme="dark" />
+        </a>
+        <p class="footer__tagline">
+          Your software. Our expertise. Perfect.
+        </p>
+        <div class="footer__contact">
+          <a href="mailto:sayhello@aatg.company">sayhello@aatg.company</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Services</h4>
+        {links.services.map((l) => (
+          <a href={l.href} class="footer__link">{l.label}</a>
+        ))}
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Company</h4>
+        {links.company.map((l) => (
+          <a href={l.href} class="footer__link">{l.label}</a>
+        ))}
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Get in Touch</h4>
+        <p class="footer__text">Hanoi City, Vietnam</p>
+        <p class="footer__text" style="margin-top:8px">
+          <a href="tel:+84352581586" class="footer__contact-link">+84 352 581 586</a>
+        </p>
+        <p class="footer__text" style="margin-top:8px">
+          Ready to discuss your project?
+        </p>
+        <a href="#contact" class="btn btn--primary" style="margin-top:16px;font-size:.75rem;padding:10px 20px">
+          Start a Conversation
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {year} AATG. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer{
+    background:var(--navy-900);
+    color:var(--white);
+    padding:clamp(48px,6vw,80px) 0 0;
+  }
+
+  .footer__grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+    gap:clamp(32px,4vw,60px);
+  }
+
+  .footer__logo{
+    display:flex;align-items:center;gap:4px;
+    font-family:var(--font-display);font-weight:800;font-size:1.4rem;
+    color:var(--white);
+    margin-bottom:16px;
+  }
+  .footer__logo-dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--orange);margin-top:5px;
+  }
+
+  .footer__tagline{
+    font-size:.9rem;color:var(--gray-400);
+    line-height:1.6;margin-bottom:20px;
+  }
+  .footer__contact a{
+    font-family:var(--font-mono);
+    font-size:.85rem;color:var(--orange);
+    transition:color .3s;
+  }
+  .footer__contact a:hover{color:var(--orange-light)}
+
+  .footer__heading{
+    font-family:var(--font-display);
+    font-size:.78rem;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gray-400);
+    margin-bottom:20px;
+  }
+
+  .footer__link{
+    display:block;
+    font-size:.88rem;color:rgba(255,255,255,.6);
+    padding:6px 0;
+    transition:color .3s var(--ease),transform .3s var(--ease);
+  }
+  .footer__link:hover{
+    color:var(--orange);
+    transform:translateX(4px);
+  }
+
+  .footer__text{
+    font-size:.88rem;color:rgba(255,255,255,.6);
+    line-height:1.6;
+  }
+  .footer__contact-link{
+    font-family:var(--font-mono);
+    color:var(--orange);
+    transition:color .3s var(--ease);
+  }
+  .footer__contact-link:hover{color:var(--orange-light)}
+
+  .footer__bottom{
+    margin-top:clamp(40px,5vw,60px);
+    padding:24px 0;
+    border-top:1px solid rgba(255,255,255,.06);
+    font-size:.78rem;color:var(--gray-400);
+  }
+
+  @media(max-width:768px){
+    .footer__grid{
+      grid-template-columns:1fr 1fr;
+      gap:40px 32px;
+    }
+    .footer__brand{grid-column:1/-1}
+  }
+  @media(max-width:480px){
+    .footer__grid{grid-template-columns:1fr}
+  }
+</style>

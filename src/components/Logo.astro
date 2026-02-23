@@ -1,0 +1,47 @@
+---
+interface Props {
+  width?: number;
+  theme?: 'light' | 'dark';
+}
+const { width = 140, theme = 'dark' } = Astro.props;
+const ratio = 100 / 38;
+const height = Math.round(width / ratio);
+---
+
+<svg
+  width={width}
+  height={height}
+  viewBox="0 0 100 38"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="AATG logo"
+  class={`logo logo--${theme}`}
+>
+  <!-- Wordmark: AATG — lighter weight, softer feel -->
+  <text
+    x="0"
+    y="24"
+    font-family="'DM Sans', system-ui, sans-serif"
+    font-weight="600"
+    font-size="20"
+    letter-spacing="1.5"
+    fill={theme === 'dark' ? 'rgba(255,255,255,0.9)' : '#1a1a2e'}
+  >
+    AAT<tspan fill={theme === 'dark' ? 'rgba(255,140,51,0.85)' : '#ff6a00'}>G</tspan>
+  </text>
+
+  <!-- Dot accent -->
+  <circle cx="1.5" cy="31.5" r="1.5" fill={theme === 'dark' ? 'rgba(255,140,51,0.7)' : '#ff6a00'} />
+
+  <!-- Tagline -->
+  <text
+    x="7"
+    y="34"
+    font-family="'IBM Plex Mono', monospace"
+    font-weight="500"
+    font-size="5.5"
+    letter-spacing="1.8"
+    fill={theme === 'dark' ? 'rgba(255,255,255,0.55)' : '#6b7280'}
+  >SOFTWARE</text>
+</svg>

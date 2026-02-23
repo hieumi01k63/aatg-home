@@ -1,0 +1,60 @@
+---
+const clients = ['Diijam', 'Global Detective', 'Hien Le Aptis', 'DNG Solution', 'Yumi Core'];
+---
+
+<section class="clients section">
+  <div class="container">
+    <div class="clients__header">
+      <p class="section-label reveal" style="justify-content:center">Trusted By</p>
+      <h2 class="section-title reveal reveal-delay-1" style="text-align:center;margin:0 auto">
+        Companies That Rely on Us
+      </h2>
+    </div>
+
+    <div class="clients__track reveal reveal-delay-2">
+      <div class="clients__logos">
+        {[...clients, ...clients].map((c) => (
+          <div class="clients__logo">
+            <span>{c}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients__header{margin-bottom:clamp(32px,4vw,48px)}
+
+  .clients__track{
+    overflow:hidden;
+    mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);
+  }
+
+  .clients__logos{
+    display:flex;gap:clamp(32px,5vw,64px);
+    animation:marquee 20s linear infinite;
+    width:max-content;
+  }
+
+  .clients__logo{
+    flex-shrink:0;
+    padding:20px clamp(28px,3vw,48px);
+    background:var(--gray-50);
+    border:1px solid var(--gray-100);
+    border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    min-width:160px;
+  }
+  .clients__logo span{
+    font-family:var(--font-display);
+    font-size:1.1rem;font-weight:700;
+    color:var(--gray-400);
+    letter-spacing:.02em;
+  }
+
+  @keyframes marquee{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+  }
+</style>

@@ -1,0 +1,92 @@
+---
+const industries = [
+  { name: 'Fintech & Banking', icon: '📊' },
+  { name: 'Healthcare', icon: '🏥' },
+  { name: 'E-Commerce', icon: '🛒' },
+  { name: 'Education', icon: '🎓' },
+  { name: 'Real Estate', icon: '🏗' },
+  { name: 'Logistics', icon: '🚛' },
+  { name: 'Media & Entertainment', icon: '🎬' },
+  { name: 'SaaS Products', icon: '☁' },
+];
+---
+
+<section class="industries section" id="industries">
+  <div class="container industries__layout">
+    <div class="industries__left">
+      <p class="section-label reveal">Industries</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        Domain Expertise Across <span style="color:var(--orange)">Key Sectors</span>
+      </h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        We've delivered solutions across diverse industries — understanding the unique challenges, regulations, and user expectations of each sector.
+      </p>
+      <a href="#contact" class="btn btn--dark reveal reveal-delay-3" style="margin-top:32px">
+        Discuss Your Project
+      </a>
+    </div>
+
+    <div class="industries__right">
+      <div class="industries__grid">
+        {industries.map((ind, i) => (
+          <div class={`industries__card reveal reveal-delay-${(i % 4) + 1}`}>
+            <span class="industries__icon">{ind.icon}</span>
+            <span class="industries__name">{ind.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .industries__layout{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:clamp(40px,6vw,80px);
+    align-items:center;
+  }
+
+  .industries__grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+
+  .industries__card{
+    display:flex;align-items:center;gap:16px;
+    padding:20px 24px;
+    background:var(--white);
+    border:1px solid var(--gray-100);
+    border-radius:8px;
+    transition:all .35s var(--ease);
+  }
+  .industries__card:hover{
+    border-color:var(--orange);
+    box-shadow:0 8px 30px rgba(255,106,0,.1);
+    transform:translateX(6px);
+  }
+
+  .industries__icon{
+    font-size:1.6rem;
+    width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--gray-50);
+    border-radius:10px;
+    flex-shrink:0;
+  }
+
+  .industries__name{
+    font-family:var(--font-display);
+    font-size:.9rem;font-weight:600;
+    color:var(--navy-800);
+  }
+
+  @media(max-width:768px){
+    .industries__layout{grid-template-columns:1fr}
+    .industries__grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:480px){
+    .industries__grid{grid-template-columns:1fr}
+  }
+</style>

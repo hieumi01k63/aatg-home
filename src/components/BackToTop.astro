@@ -1,0 +1,55 @@
+<button class="btt" id="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M10 16V4m0 0l-5 5m5-5l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<style>
+  .btt{
+    position:fixed;
+    bottom:32px;right:32px;
+    z-index:900;
+    width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--orange);
+    color:var(--white);
+    border-radius:50%;
+    box-shadow:0 4px 20px rgba(255,106,0,.3);
+    opacity:0;
+    transform:translateY(16px);
+    pointer-events:none;
+    transition:opacity .35s var(--ease),transform .35s var(--ease),background .25s var(--ease);
+  }
+  .btt.is-visible{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .btt:hover{
+    background:var(--orange-light);
+    transform:translateY(-3px);
+    box-shadow:0 6px 28px rgba(255,106,0,.4);
+  }
+
+  @media(max-width:768px){
+    .btt{bottom:20px;right:20px;width:44px;height:44px}
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('back-to-top')!;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      btn.classList.toggle('is-visible', window.scrollY > 400);
+      ticking = false;
+    });
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>

@@ -1,0 +1,125 @@
+---
+const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Industries', href: '#industries' },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'Contact', href: '#contact' },
+];
+
+import Logo from './Logo.astro';
+---
+
+<header class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="/" class="navbar__logo" aria-label="AATG Home">
+      <Logo width={160} theme="dark" />
+    </a>
+
+    <nav class="navbar__nav" id="nav-menu">
+      {links.map((l) => (
+        <a href={l.href} class="navbar__link">{l.label}</a>
+      ))}
+    </nav>
+
+    <a href="#contact" class="btn btn--primary navbar__cta">Get Started</a>
+
+    <button class="navbar__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .navbar{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    padding:0 0;
+    background:transparent;
+    transition:background .35s var(--ease),box-shadow .35s var(--ease),padding .35s var(--ease);
+  }
+  .navbar.is-scrolled{
+    background:rgba(10,0,37,.95);
+    backdrop-filter:blur(12px);
+    box-shadow:0 2px 40px rgba(0,0,0,.25);
+  }
+  .navbar__inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:80px;
+  }
+  .navbar__logo{
+    display:flex;align-items:center;gap:4px;
+    font-family:var(--font-display);font-weight:800;font-size:1.5rem;
+    color:var(--white);letter-spacing:-.02em;
+  }
+  .navbar__logo-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--orange);display:inline-block;
+    margin-top:6px;
+  }
+  .navbar__nav{display:flex;gap:clamp(20px,3vw,40px)}
+  .navbar__link{
+    font-family:var(--font-display);
+    font-size:.82rem;font-weight:600;
+    letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);
+    padding:6px 0;
+    position:relative;
+    transition:color .3s var(--ease);
+  }
+  .navbar__link::after{
+    content:'';position:absolute;bottom:0;left:0;
+    width:0;height:2px;background:var(--orange);
+    transition:width .3s var(--ease);
+  }
+  .navbar__link:hover{color:var(--white)}
+  .navbar__link:hover::after{width:100%}
+
+  .navbar__cta{padding:10px 24px;font-size:.78rem}
+
+  .navbar__burger{
+    display:none;flex-direction:column;gap:5px;
+    width:28px;padding:4px 0;
+  }
+  .navbar__burger span{
+    display:block;height:2px;background:var(--white);
+    border-radius:2px;transition:all .3s var(--ease);
+  }
+
+  @media(max-width:900px){
+    .navbar__nav,.navbar__cta{display:none}
+    .navbar__burger{display:flex}
+
+    .navbar__nav.is-open{
+      display:flex;flex-direction:column;
+      position:absolute;top:80px;left:0;right:0;
+      background:rgba(10,0,37,.98);
+      padding:24px clamp(20px,4vw,40px) 32px;
+      gap:0;
+    }
+    .navbar__nav.is-open .navbar__link{
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      font-size:.9rem;
+    }
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar')!;
+  const burger = document.getElementById('burger')!;
+  const menu = document.getElementById('nav-menu')!;
+
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 60);
+  });
+
+  burger.addEventListener('click', () => {
+    menu.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', menu.classList.contains('is-open').toString());
+  });
+
+  // Close mobile menu on link click
+  menu.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => menu.classList.remove('is-open'))
+  );
+</script>
