@@ -1,22 +1,24 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const values = [
   {
-    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 26V8a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H10l-4 4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12h8M12 16h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    icon: 'lucide:file-code-2',
     title: 'Clean Code',
     desc: 'Maintainable, well-documented codebases that your team can understand, extend, and trust.',
   },
   {
-    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M16 10v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    icon: 'lucide:clock',
     title: '24/7 Support',
     desc: 'Round-the-clock availability across time zones. Your project never sleeps.',
   },
   {
-    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 6l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+    icon: 'lucide:star',
     title: 'Value for Money',
     desc: 'Top-tier engineering talent at competitive rates — maximize ROI on every sprint.',
   },
   {
-    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M4 16h6l3-8 5 16 3-8h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    icon: 'lucide:zap',
     title: 'Faster Delivery',
     desc: 'Optimized workflows and experienced teams mean you ship features on time, every time.',
   },
@@ -33,7 +35,9 @@ const values = [
     <div class="values__grid">
       {values.map((v, i) => (
         <div class={`values__item reveal reveal-delay-${i + 1}`}>
-          <div class="values__icon" aria-hidden="true" set:html={v.icon} />
+          <div class="values__icon" aria-hidden="true">
+            <Icon name={v.icon} size={28} />
+          </div>
           <h3 class="values__title">{v.title}</h3>
           <p class="values__desc">{v.desc}</p>
         </div>

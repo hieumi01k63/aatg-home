@@ -1,8 +1,10 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const highlights = [
-  { icon: '⟐', title: 'Agile Methodology', desc: 'Iterative development with continuous feedback loops for rapid, reliable delivery.' },
-  { icon: '◈', title: 'Scalable Architecture', desc: 'Systems designed to grow with your business — from startup to enterprise scale.' },
-  { icon: '⬡', title: 'Quality First', desc: 'Rigorous code review, automated testing, and CI/CD pipelines on every project.' },
+  { icon: 'lucide:repeat', title: 'Agile Methodology', desc: 'Iterative development with continuous feedback loops for rapid, reliable delivery.' },
+  { icon: 'lucide:blocks', title: 'Scalable Architecture', desc: 'Systems designed to grow with your business — from startup to enterprise scale.' },
+  { icon: 'lucide:shield-check', title: 'Quality First', desc: 'Rigorous code review, automated testing, and CI/CD pipelines on every project.' },
 ];
 ---
 
@@ -31,7 +33,9 @@ const highlights = [
       <div class="about__highlights">
         {highlights.map((h, i) => (
           <div class={`about__highlight reveal reveal-delay-${i + 2}`}>
-            <span class="about__highlight-icon" aria-hidden="true">{h.icon}</span>
+            <span class="about__highlight-icon" aria-hidden="true">
+              <Icon name={h.icon} size={22} />
+            </span>
             <div>
               <h3 class="about__highlight-title">{h.title}</h3>
               <p class="about__highlight-desc">{h.desc}</p>
@@ -107,7 +111,6 @@ const highlights = [
     display:flex;align-items:center;justify-content:center;
     background:var(--orange-glow);
     color:var(--orange);
-    font-size:1.2rem;
     border-radius:8px;
   }
   .about__highlight-title{

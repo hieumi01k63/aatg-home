@@ -1,13 +1,15 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const industries = [
-  { name: 'Fintech & Banking', icon: '📊' },
-  { name: 'Healthcare', icon: '🏥' },
-  { name: 'E-Commerce', icon: '🛒' },
-  { name: 'Education', icon: '🎓' },
-  { name: 'Real Estate', icon: '🏗' },
-  { name: 'Logistics', icon: '🚛' },
-  { name: 'Media & Entertainment', icon: '🎬' },
-  { name: 'SaaS Products', icon: '☁' },
+  { name: 'Fintech & Banking', icon: 'lucide:landmark' },
+  { name: 'Healthcare', icon: 'lucide:heart-pulse' },
+  { name: 'E-Commerce', icon: 'lucide:shopping-cart' },
+  { name: 'Education', icon: 'lucide:graduation-cap' },
+  { name: 'Real Estate', icon: 'lucide:building-2' },
+  { name: 'Logistics', icon: 'lucide:truck' },
+  { name: 'Media & Entertainment', icon: 'lucide:clapperboard' },
+  { name: 'SaaS Products', icon: 'lucide:cloud' },
 ];
 ---
 
@@ -30,7 +32,9 @@ const industries = [
       <div class="industries__grid">
         {industries.map((ind, i) => (
           <div class={`industries__card reveal reveal-delay-${(i % 4) + 1}`}>
-            <span class="industries__icon" aria-hidden="true">{ind.icon}</span>
+            <span class="industries__icon" aria-hidden="true">
+              <Icon name={ind.icon} size={24} />
+            </span>
             <span class="industries__name">{ind.name}</span>
           </div>
         ))}
@@ -68,12 +72,12 @@ const industries = [
   }
 
   .industries__icon{
-    font-size:1.6rem;
     width:48px;height:48px;
     display:flex;align-items:center;justify-content:center;
     background:var(--gray-50);
     border-radius:10px;
     flex-shrink:0;
+    color:var(--orange);
   }
 
   .industries__name{
